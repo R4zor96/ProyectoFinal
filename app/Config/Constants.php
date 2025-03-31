@@ -144,7 +144,7 @@ define('RECURSOS_PANEL_BSB_PLUGINS', 'recursos_panel_bsb\plugins');
 
 
 //RECURSOS PORTAL
-define('RECURSOS_PORTAL_CSS', 'recursos_portal\css');
-define('RECURSOS_PORTAL_JS', 'recursos_portal\js');
-define('RECURSOS_PORTAL_IMG', 'recursos_portal\img');
+define('RECURSOS_PORTAL_CSS', 'recursos_portal/css');
+define('RECURSOS_PORTAL_JS', 'recursos_portal/js');
+define('RECURSOS_PORTAL_IMG', 'recursos_portal/img');
 

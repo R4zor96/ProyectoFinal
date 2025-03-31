@@ -2,9 +2,9 @@ DROP DATABASE IF EXISTS blockbuster;
 CREATE DATABASE IF NOT EXISTS blockbuster DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE blockbuster;
 
--- CREATE USER IF NOT EXISTS 'blockbuser'@'localhost' IDENTIFIED BY 'blockpass487';
--- GRANT ALL PRIVILEGES ON blockbuster.* TO 'blockbuser'@'localhost';
--- FLUSH PRIVILEGES;
+CREATE USER IF NOT EXISTS 'blockbuser'@'localhost' IDENTIFIED BY 'blockpass487';
+GRANT ALL PRIVILEGES ON blockbuster.* TO 'blockbuser'@'localhost';
+FLUSH PRIVILEGES;
 
 CREATE TABLE roles (
     id_rol INT(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -26,10 +26,10 @@ CREATE TABLE planes (
 )ENGINE=InnoDB;
 
 INSERT INTO planes (id_plan, estatus_plan, nombre_plan, precio_plan, cantidad_limite_plan, tipo_plan) VALUES
-    (NULL, '1', "Básico", 99.99, 10, 8),
-    (NULL, '1', "Estándar", 199.09, 10, 16),
-    (NULL, '1', "Co-Prenium", 398.37, 10, 16),
-    (NULL, '1', "Prenium", 1499.99, 10, 32);
+    (1, '1', "Básico", 99.99, 10, 8),
+    (2, '1', "Estándar", 199.09, 10, 16),
+    (3, '1', "Co-Prenium", 398.37, 10, 16),
+    (4, '1', "Prenium", 1499.99, 10, 32);
 
 CREATE TABLE usuarios (
     id_usuario INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,

@@ -38,15 +38,19 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::example');
-//PAGINA PRINCIPAL
-$routes->get('/', 'Portal/Home::index');
 
+//RUTAS PORTAL
+$routes->get('/', 'Portal/Home::index');
+$routes->get('categoria/(:num)', 'Categoria::index/$1');
+
+//RUTAS SESSION
 $routes->get('/inicio', 'Usuario/InicioSesion::index', ['as'=> 'inicio']);
 $routes->get('/dashboard', 'Panel/Dashboard::index', ['as'=> 'dashboard']);
 
 $routes->post('/iniciar_sesion', 'Usuario/InicioSesion::iniciar_sesion');
 $routes->get('/salir', 'Usuario/Logout::index', ['as'=> 'salir']);
 
+//RUTAS DASHBOARD
 $routes->get('/usuarios', 'Panel/Usuarios::index', ['as'=> 'usuarios']);
 $routes->get('/usuario_nuevo', 'Panel/Usuario_nuevo::index', ['as'=> 'usuario_nuevo']);
 $routes->post('/registrar_usuario', 'Panel/Usuario_nuevo::registrar', ['as'=> 'registrar_usuario']);
