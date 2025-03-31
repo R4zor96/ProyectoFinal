@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers\Usuario;
 use App\Controllers\BaseController;
 

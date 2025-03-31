@@ -85,13 +85,14 @@ defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX', 125); // highest auto
  * define('CONSTANT_NAME', array());
  * 
  */
-
+//RECURSOS USUARIOS
 define('RECURSOS_USUARIO_CSS', 'recursos_usuario/css');
 define('RECURSOS_USUARIO_JS', 'recursos_usuario/js');
 define('RECURSOS_USUARIO_VENDOR', 'recursos_usuario/vendor');
 define('RECURSOS_USUARIO_FONTS', 'recursos_usuario/fonts');
 define('RECURSOS_USUARIO_IMAGE', 'recursos_usuario/images');
 
+//RECURSOS PANEL
 define('RECURSOS_PANEL_ADMIN_CSS', 'recursos_panel_admin/dist/css');
 define('RECURSOS_PANEL_ADMIN_JS', 'recursos_panel_admin/dist/js');
 define('RECURSOS_PANEL_ADMIN_IMG', 'recursos_panel_admin/dist/img');
@@ -139,3 +140,11 @@ define("ROLES", array(
 define('RECURSOS_PANEL_BSB_JS', 'recursos_panel_bsb\js');
 define('RECURSOS_PANEL_BSB_CSS', 'recursos_panel_bsb\css');
 define('RECURSOS_PANEL_BSB_PLUGINS', 'recursos_panel_bsb\plugins');
+
+
+
+//RECURSOS PORTAL
+define('RECURSOS_PORTAL_CSS', 'recursos_portal\css');
+define('RECURSOS_PORTAL_JS', 'recursos_portal\js');
+define('RECURSOS_PORTAL_IMG', 'recursos_portal\img');
+

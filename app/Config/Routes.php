@@ -37,10 +37,12 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::example');
+//$routes->get('/', 'Home::example');
+//PAGINA PRINCIPAL
+$routes->get('/', 'Portal/Home::index');
+
 $routes->get('/inicio', 'Usuario/InicioSesion::index', ['as'=> 'inicio']);
 $routes->get('/dashboard', 'Panel/Dashboard::index', ['as'=> 'dashboard']);
-//$routes->get('/dashboard2', 'Panel/Dashboard::index', ['as'=> 'dashboard2']);
 
 $routes->post('/iniciar_sesion', 'Usuario/InicioSesion::iniciar_sesion');
 $routes->get('/salir', 'Usuario/Logout::index', ['as'=> 'salir']);
@@ -52,7 +54,6 @@ $routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['a
 $routes->post('editar_usuario/(:num)', 'Panel\Usuario_detalles::actualizar/$1', ['as'=> 'editar_usuario']);
 $routes->get('estatus_usuario/(:num)/(:num)', 'Panel\Usuarios::estatus/$1/$2', ['as'=> 'estatus_usuario']);
 $routes->get('eliminar_usuario/(:num)', 'Panel\Usuarios::eliminar/$1', ['as'=> 'eliminar_usuario']);
-
 
 /*
  * --------------------------------------------------------------------
