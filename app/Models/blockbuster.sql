@@ -85,7 +85,6 @@ INSERT INTO generos (id_genero, estatus_genero, nombre_genero, descripcion_gener
     (25, 1, 'Survival', 'Personajes enfrentando condiciones extremas para sobrevivir.'),
     (26, 1, 'Utopía / Distopía', 'Mundos futuros ideales o en crisis política y social.');
 
-
 CREATE TABLE streaming (
     id_streaming INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     estatus_streaming TINYINT(1) NULL DEFAULT -1 COMMENT '1-> Habilitado, -1-> Deshabilitado',

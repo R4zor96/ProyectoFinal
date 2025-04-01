@@ -16,8 +16,12 @@ class Home extends BaseController
     
     private function load_data()
 {
+    $tablaStreaming = new \App\Models\Tabla_streaming();
     helper('message');
     $data = array();
+
+    $data['peliculas'] = $tablaStreaming->get_peliculas_ordenadas(6); // 6 películas   
+    $data['series'] = $tablaStreaming->get_series_ordenadas(6); // 6 series 
     $data['nombre_pagina'] = 'Home';
     $data['titulo_pagina'] = 'Home';
 
@@ -40,4 +44,6 @@ class Home extends BaseController
     {
         return $this->create_view($this->view, $this->load_data());
     } // end index
+
+    
 }

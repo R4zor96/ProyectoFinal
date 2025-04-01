@@ -15,6 +15,8 @@
         rel="stylesheet">
 
     <!-- Css Styles -->
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <link rel="stylesheet" href="<?= base_url(RECURSOS_PORTAL_CSS . '/bootstrap.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url(RECURSOS_PORTAL_CSS . '/font-awesome.min.css') ?>" type="text/css">
     <link rel="stylesheet" href="<?= base_url(RECURSOS_PORTAL_CSS . '/elegant-icons.css') ?>" type="text/css">
@@ -28,9 +30,9 @@
 
 <body>
     <!-- Page Preloder -->
-    <div id="preloder">
+    <!-- <div id="preloder">
         <div class="loader"></div>
-    </div>
+    </div> -->
 
     <!-- Header Section Begin -->
     <header class="header">
@@ -39,7 +41,7 @@
                 <div class="col-2 mb-1 mt-1">
                     <img src="<?= base_url(RECURSOS_PORTAL_IMG . '/blockbuster_logo.png') ?>" alt="" style="width: 55%;">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-7">
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
@@ -56,7 +58,7 @@
                         </nav>
                     </div>
                 </div>
-                <div class="col-lg-2">
+                <div class="col-lg">
                     <div class="header__right">
                         <?php if ($nombre_usuario != 'Invitado'): ?>
                             <!-- Usuario logueado - Mostrar enlace a perfil o dashboard -->
@@ -64,6 +66,11 @@
                                 <span class="icon_profile"></span>
                                 <span class="d-none d-sm-inline"><?= esc($nombre_usuario) ?></span>
                             </a>
+                            <a href="<?= route_to('salir') ?>" title="Salir">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span class="d-none d-sm-inline"></span>
+                            </a>
+
                         <?php else: ?>
                             <!-- Usuario no logueado - Mostrar enlace a login -->
                             <a href="<?= route_to('inicio') ?>" title="Iniciar sesión">

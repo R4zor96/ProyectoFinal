@@ -136,16 +136,15 @@ define("ROLES", array(
     ROL_CLIENTE["clave"] => ROL_CLIENTE["rol"],
 ));
 
-
-
 define('RECURSOS_PANEL_BSB_JS', 'recursos_panel_bsb\js');
 define('RECURSOS_PANEL_BSB_CSS', 'recursos_panel_bsb\css');
 define('RECURSOS_PANEL_BSB_PLUGINS', 'recursos_panel_bsb\plugins');
-
-
 
 //RECURSOS PORTAL
 define('RECURSOS_PORTAL_CSS', 'recursos_portal/css');
 define('RECURSOS_PORTAL_JS', 'recursos_portal/js');
 define('RECURSOS_PORTAL_IMG', 'recursos_portal/img');
 
+//RECURSOS STREAMING
+define('RECURSOS_STREAMINGS_IMG', 'recursos_streamings/caratulas'); //Caratulas
+define('RECURSOS_STREAMINGS_VIDEO', 'recursos_streamings/videos'); //Caratulas
