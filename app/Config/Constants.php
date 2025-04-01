@@ -99,7 +99,6 @@ define('RECURSOS_PANEL_ADMIN_IMG', 'recursos_panel_admin/dist/img');
 define('RECURSOS_PANEL_ADMIN_PLUGINS', 'recursos_panel_admin/plugins');
 define('RECURSOS_PANEL_IMG_PROFILES_USER', 'images/profile_user/');
 
-
 define('MASCULINO', 1);
 define('FEMENINO', 0);
 
@@ -128,11 +127,13 @@ define('PERMISOS_OPERADOR', array(
 
 define('ROL_ADMINISTRADOR', array("clave" => 745 , "rol" => "Administrador"));
 define('ROL_OPERADOR', array("clave" => 125 , "rol" => "Operador"));
+define('ROL_CLIENTE', array("clave" => 58 , "rol" => "Cliente"));
 
 //ROLES
 define("ROLES", array(
     ROL_ADMINISTRADOR["clave"] => ROL_ADMINISTRADOR["rol"],
     ROL_OPERADOR["clave"] => ROL_OPERADOR["rol"],
+    ROL_CLIENTE["clave"] => ROL_CLIENTE["rol"],
 ));
 
 

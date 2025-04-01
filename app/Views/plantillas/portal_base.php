@@ -58,8 +58,21 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="header__right">
-                        <a href="#" class="search-switch"><span class="icon_search"></span></a>
-                        <a href="./login.html"><span class="icon_profile"></span></a>
+                        <?php if ($nombre_usuario != 'Invitado'): ?>
+                            <!-- Usuario logueado - Mostrar enlace a perfil o dashboard -->
+                            <a href="<?= route_to('perfil') ?>" title="<?= esc($nombre_completo_usuario) ?>">
+                                <span class="icon_profile"></span>
+                                <span class="d-none d-sm-inline"><?= esc($nombre_usuario) ?></span>
+                            </a>
+                        <?php else: ?>
+                            <!-- Usuario no logueado - Mostrar enlace a login -->
+                            <a href="<?= route_to('inicio') ?>" title="Iniciar sesión">
+                                <span class="icon_profile"></span>
+                                <span class="d-none d-sm-inline">Iniciar sesión</span>
+                            </a>
+                        <?php endif; ?>
+
+
                     </div>
                 </div>
             </div>

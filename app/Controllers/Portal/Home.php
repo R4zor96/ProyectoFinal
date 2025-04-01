@@ -5,16 +5,39 @@ use App\Controllers\BaseController;
 
 class Home extends BaseController
 {
+    private $view = 'portal/home';
+    private $session = null;
+
+    public function __construct()
+    {
+        //instanciamos la variable de sesion
+        $this->session = session();
+    }
+    
+    private function load_data()
+{
+    helper('message');
+    $data = array();
+    $data['nombre_pagina'] = 'Home';
+    $data['titulo_pagina'] = 'Home';
+
+    // Verificar y asignar valores de sesión de manera segura
+    $data["nombre_completo_usuario"] = $this->session->get('nombre_completo') ?? 'Invitado';
+    $data["nombre_usuario"] = $this->session->get('nickname') ?? 'Invitado';
+    $data["email_usuario"] = $this->session->get('correo') ?? '';
+
+    return $data;
+}
+
+    private function create_view($name_view = '', $content = array())
+    {
+        //$content["menu_lateral"] = crear_menu_panel($this->session->tarea_actual, $this->session->rol_actual);
+        return view($name_view, $content);
+    } //end make_view
+
+    //Main function : index
     public function index()
     {
-        return view('portal/home');
-    }
-
-    public function home(){
-        //Show a String
-        // echo "It's working";
-
-        //Calling a other method
-        return $this->index();
-    }
+        return $this->create_view($this->view, $this->load_data());
+    } // end index
 }

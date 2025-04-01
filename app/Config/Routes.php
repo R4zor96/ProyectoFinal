@@ -39,25 +39,24 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::example');
 
+//RUTAS INICIO
+$routes->get('/inicio', 'Usuario\InicioSesion::index', ['as'=> 'inicio']);
+$routes->get('/dashboard', 'Panel\Dashboard::index', ['as'=> 'dashboard']);
+$routes->post('/iniciar_sesion', 'Usuario\InicioSesion::iniciar_sesion');
+$routes->get('/salir', 'Usuario\Logout::index', ['as'=> 'salir']);
+
 //RUTAS PORTAL
-$routes->get('/', 'Portal/Home::index');
-$routes->get('categoria/(:num)', 'Categoria::index/$1');
-
-//RUTAS SESSION
-$routes->get('/inicio', 'Usuario/InicioSesion::index', ['as'=> 'inicio']);
-$routes->get('/dashboard', 'Panel/Dashboard::index', ['as'=> 'dashboard']);
-
-$routes->post('/iniciar_sesion', 'Usuario/InicioSesion::iniciar_sesion');
-$routes->get('/salir', 'Usuario/Logout::index', ['as'=> 'salir']);
+$routes->get('/', 'Portal\Home::index', ['as'=> 'home']);
+$routes->get('categoria/(:num)', 'Categoria::index\$1');
 
 //RUTAS DASHBOARD
-$routes->get('/usuarios', 'Panel/Usuarios::index', ['as'=> 'usuarios']);
-$routes->get('/usuario_nuevo', 'Panel/Usuario_nuevo::index', ['as'=> 'usuario_nuevo']);
-$routes->post('/registrar_usuario', 'Panel/Usuario_nuevo::registrar', ['as'=> 'registrar_usuario']);
-$routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index/$1', ['as'=> 'detalles_usuario']);
-$routes->post('editar_usuario/(:num)', 'Panel\Usuario_detalles::actualizar/$1', ['as'=> 'editar_usuario']);
-$routes->get('estatus_usuario/(:num)/(:num)', 'Panel\Usuarios::estatus/$1/$2', ['as'=> 'estatus_usuario']);
-$routes->get('eliminar_usuario/(:num)', 'Panel\Usuarios::eliminar/$1', ['as'=> 'eliminar_usuario']);
+$routes->get('/usuarios', 'Panel\Usuarios::index', ['as'=> 'usuarios']);
+$routes->get('/usuario_nuevo', 'Panel\Usuario_nuevo::index', ['as'=> 'usuario_nuevo']);
+$routes->post('/registrar_usuario', 'Panel\Usuario_nuevo::registrar', ['as'=> 'registrar_usuario']);
+$routes->get('/detalles_usuario/(:num)', 'Panel\Usuario_detalles::index\$1', ['as'=> 'detalles_usuario']);
+$routes->post('editar_usuario/(:num)', 'Panel\Usuario_detalles::actualizar\$1', ['as'=> 'editar_usuario']);
+$routes->get('estatus_usuario/(:num)/(:num)', 'Panel\Usuarios::estatus\$1\$2', ['as'=> 'estatus_usuario']);
+$routes->get('eliminar_usuario/(:num)', 'Panel\Usuarios::eliminar\$1', ['as'=> 'eliminar_usuario']);
 
 /*
  * --------------------------------------------------------------------

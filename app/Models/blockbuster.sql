@@ -33,7 +33,7 @@ INSERT INTO planes (id_plan, estatus_plan, nombre_plan, precio_plan, cantidad_li
 
 CREATE TABLE usuarios (
     id_usuario INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    estatus_usuario TINYINT(1) NULL DEFAULT -1 COMMENT '1-> Habilitado, -1-> Deshabilitado',
+    estatus_usuario TINYINT(1) NULL DEFAULT 1 COMMENT '1-> Habilitado, -1-> Deshabilitado',
     nombre_usuario VARCHAR(50) NOT NULL,
     ap_usuario VARCHAR(50) NOT NULL,
     am_usuario VARCHAR(50) NULL DEFAULT NULL,
@@ -84,7 +84,6 @@ INSERT INTO generos (id_genero, estatus_genero, nombre_genero, descripcion_gener
     (24, 1, 'Noir / Neo-Noir', 'Historias criminales con un tono oscuro y detectives.'),
     (25, 1, 'Survival', 'Personajes enfrentando condiciones extremas para sobrevivir.'),
     (26, 1, 'Utopía / Distopía', 'Mundos futuros ideales o en crisis política y social.');
-
 
 
 CREATE TABLE streaming (
