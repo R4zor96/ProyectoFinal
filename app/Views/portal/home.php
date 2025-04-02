@@ -10,6 +10,20 @@
 
 <!-- RENDER CONTENT -->
 <?= $this->section('content') ?>
+<!-- Breadcrumb -->
+<div class="breadcrumb-option">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="<?= site_url('/') ?>"><i class="fa fa-home"></i> Home</a>
+                    <span>Home</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Hero Section Begin -->
 <section class="hero">
     <div class="container">
@@ -114,7 +128,7 @@
                                 <div class="product__item">
                                     <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $serie->caratula_streaming) ?>">
                                         <div class="ep">Temp. <?= $serie->temporadas_streaming ?></div>
-                                        <div class="view"><i class="fa fa-eye"></i> <?= $serie->clasificacion_streaming ?></div>
+                                        <div class="view"><i class="fa fa-film"></i> <?= $serie->clasificacion_streaming ?></div>
                                     </div>
                                     <div class="product__item__text">
                                         <ul>
@@ -134,106 +148,34 @@
                 <div class="product__sidebar">
                     <div class="product__sidebar__view">
                         <div class="section-title">
-                            <h5>Top Views</h5>
+                            <h5>Top Streamings</h5>
                         </div>
                         <ul class="filter__controls">
-                            <li class="active" data-filter="*">Day</li>
-                            <li data-filter=".week">Week</li>
-                            <li data-filter=".month">Month</li>
-                            <li data-filter=".years">Years</li>
+                            <li class="active" data-filter="*">Todos</li>
+                            <li data-filter=".day">Día</li>
+                            <li data-filter=".week">Semana</li>
+                            <li data-filter=".month">Mes</li>
+                            <li data-filter=".years">Año</li>
                         </ul>
                         <div class="filter__gallery">
-                            <div class="product__sidebar__view__item set-bg mix day years"
-                                data-setbg="img/sidebar/tv-1.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Boruto: Naruto next generations</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix month week"
-                                data-setbg="img/sidebar/tv-2.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix week years"
-                                data-setbg="img/sidebar/tv-3.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Sword art online alicization war of underworld</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix years month"
-                                data-setbg="img/sidebar/tv-4.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate/stay night: Heaven's Feel I. presage flower</a></h5>
-                            </div>
-                            <div class="product__sidebar__view__item set-bg mix day"
-                                data-setbg="img/sidebar/tv-5.jpg">
-                                <div class="ep">18 / ?</div>
-                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
-                                <h5><a href="#">Fate stay night unlimited blade works</a></h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="product__sidebar__comment">
-                        <div class="section-title">
-                            <h5>New Comment</h5>
-                        </div>
-
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-1.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">The Seven Deadly Sins: Wrath of the Gods</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-                            </div>
-                        </div>
-
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-2.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Shirogane Tamashii hen Kouhan sen</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-                            </div>
-                        </div>
-
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-3.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Kizumonogatari III: Reiket su-hen</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-                            </div>
-                        </div>
-                        <div class="product__sidebar__comment__item">
-                            <div class="product__sidebar__comment__item__pic">
-                                <img src="img/sidebar/comment-4.jpg" alt="">
-                            </div>
-                            <div class="product__sidebar__comment__item__text">
-                                <ul>
-                                    <li>Active</li>
-                                    <li>Movie</li>
-                                </ul>
-                                <h5><a href="#">Monogatari Series: Second Season</a></h5>
-                                <span><i class="fa fa-eye"></i> 19.141 Viewes</span>
-                            </div>
+                            <?php foreach ($top_streamings as $streaming): ?>
+                                <div class="product__sidebar__view__item set-bg mix <?= $streaming->filtro_aleatorio ?>"
+                                    data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $streaming->caratula_streaming) ?>">
+                                    <?php if ($streaming->tipo_duracion == 'Película'): ?>
+                                        <div class="ep"><?= date('H:i', strtotime($streaming->duracion_streaming)) ?></div>
+                                    <?php else: ?>
+                                        <div class="ep">Temporadas: <?= $streaming->temporadas_streaming ?></div>
+                                    <?php endif; ?>
+                                    <div class="view">
+                                        <i class="fa fa-film"></i> <?= $streaming->clasificacion_streaming ?>
+                                    </div>
+                                    <h5>
+                                        <a href="<?= route_to('detalle_streaming', $streaming->id_streaming) ?>">
+                                            <?= esc($streaming->nombre_streaming) ?>
+                                        </a>
+                                    </h5>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

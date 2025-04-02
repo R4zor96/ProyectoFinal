@@ -37,6 +37,16 @@ class Tabla_categorias extends Model
             ->getRow();
     } //end get_category
 
+    public function get_genero_by_id($id_genero)
+    {
+        return $this
+            ->table($this->table)
+            ->where('id_genero', $id_genero)
+            ->get()
+            ->getRow();
+    } // end get_genero_by_id
+    
+
     public function get_table()
     {
         return $this

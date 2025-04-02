@@ -22,6 +22,8 @@ class Home extends BaseController
 
     $data['peliculas'] = $tablaStreaming->get_peliculas_ordenadas(6); // 6 películas   
     $data['series'] = $tablaStreaming->get_series_ordenadas(6); // 6 series 
+    $data['top_streamings'] = $tablaStreaming->get_top_streamings(6);
+    //dd($data);
     $data['nombre_pagina'] = 'Home';
     $data['titulo_pagina'] = 'Home';
 

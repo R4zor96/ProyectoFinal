@@ -1,9 +1,9 @@
 DROP DATABASE IF EXISTS blockbuster;
-CREATE DATABASE IF NOT EXISTS blockbuster DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+CREATE DATABASE IF NOT EXISTS blockbuster DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE blockbuster;
 
-CREATE USER IF NOT EXISTS 'blockbuser'@'localhost' IDENTIFIED BY 'blockpass487';
-GRANT ALL PRIVILEGES ON blockbuster.* TO 'blockbuser'@'localhost';
+CREATE USER IF NOT EXISTS 'blockbuser'@'%' IDENTIFIED BY 'blockpass487';
+GRANT ALL PRIVILEGES ON blockbuster.* TO 'blockbuser'@'%';
 FLUSH PRIVILEGES;
 
 CREATE TABLE roles (
@@ -54,7 +54,7 @@ CREATE TABLE generos (
     id_genero INT(3) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     estatus_genero TINYINT(1) NULL DEFAULT -1 COMMENT '1-> Habilitado, -1-> Deshabilitado',
     nombre_genero VARCHAR(30) NOT NULL,
-    descripcion_genero TEXT NULL DEFAULT 'Sin descripción...' COMMENT ''
+    descripcion_genero TEXT NULL COMMENT 'Sin descripción...'
 )ENGINE=InnoDB;
 
 INSERT INTO generos (id_genero, estatus_genero, nombre_genero, descripcion_genero) VALUES
@@ -94,8 +94,8 @@ CREATE TABLE streaming (
     temporadas_streaming TINYINT(1) NULL COMMENT 'temporadas',
     caratula_streaming VARCHAR(50) NOT NULL COMMENT 'image_caratula.png',
     trailer_streaming VARCHAR(70) NOT NULL COMMENT 'trailer_streaming.mp3',
-    clasificacion_streaming VARCHAR(3) NOT NULL COMMENT 'AA: Infantil, A: Todo Público, B: Mayores de 12, B15: Mayores de 15, C: Solo Mayores 18, D: Exclusiva Adultos',
-    sipnosis_streaming TEXT DEFAULT 'Sin descripción por el momento' COMMENT '',
+    clasificacion_streaming VARCHAR(7) NOT NULL COMMENT 'AA: Infantil, A: Todo Público, B: Mayores de 12, B15: Mayores de 15, C: Solo Mayores 18, D: Exclusiva Adultos, PG-13: Mayores de 13 con guía parental, R: Restringido menores de 17, G: Todo público',
+    sipnosis_streaming TEXT COMMENT '',
     fecha_estreno_streaming DATE NOT NULL,
     id_genero INT(3) NOT NULL,
     FOREIGN KEY(id_genero) REFERENCES generos (id_genero) ON DELETE CASCADE ON UPDATE CASCADE

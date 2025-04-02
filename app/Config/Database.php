@@ -32,7 +32,7 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
+        'hostname' => 'turntable.proxy.rlwy.net:48354',
         'username' => 'blockbuser',
         'password' => 'blockpass487',
         'database' => 'blockbuster',

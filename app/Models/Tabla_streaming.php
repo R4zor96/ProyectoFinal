@@ -37,16 +37,40 @@ class Tabla_streaming extends Model
         return false;
     }
 
-    public function get_all_streaming_by_gen($id_genero, $limit=null)
+    public function get_top_streamings($limit = 6)
     {
-        $builder = $this->where('id_genero',$id_genero)
-        ->where('estatus_streaming', 1);
+        // Asegúrate de estar usando el builder correctamente
+        $builder = $this->builder(); // Obtener el builder de la tabla correspondiente
 
-    if ($limit) {
-        $builder->limit($limit);
+        // Aplicar orden y limitación
+        $resultados = $builder->orderBy('fecha_estreno_streaming', 'DESC')
+            ->limit($limit)
+            ->get() // Ejecutar la consulta
+            ->getResult();
+
+        // Filtros para asignar aleatoriamente
+        $filtros = ['day', 'week', 'month', 'years'];
+
+        // Modificar los resultados antes de retornarlos
+        foreach ($resultados as $item) {
+            $item->filtro_aleatorio = $filtros[array_rand($filtros)];
+            $item->tipo_duracion = ($item->duracion_streaming) ? 'Película' : 'Serie';
+        }
+
+        return $resultados;
     }
 
-    return $builder->findAll();
+
+    public function get_all_streaming_by_gen($id_genero, $limit = null)
+    {
+        $builder = $this->where('id_genero', $id_genero)
+            ->where('estatus_streaming', 1);
+
+        if ($limit) {
+            $builder->limit($limit);
+        }
+
+        return $builder->findAll();
     }
 
     public function get_streaming($id)
@@ -117,7 +141,9 @@ class Tabla_streaming extends Model
 
     public function get_peliculas_ordenadas($limit = null)
     {
-        $builder = $this->where('duracion_streaming IS NOT NULL')
+        $builder = $this->builder();
+
+        $builder->where('duracion_streaming IS NOT NULL')
             ->where('temporadas_streaming IS NULL')
             ->where('estatus_streaming', 1)
             ->orderBy('nombre_streaming', 'ASC');
@@ -126,8 +152,9 @@ class Tabla_streaming extends Model
             $builder->limit($limit);
         }
 
-        return $builder->findAll();
+        return $builder->get()->getResult();
     }
+
 
     // =============================
     // Métodos específicos para Series
@@ -146,10 +173,11 @@ class Tabla_streaming extends Model
         return $builder->findAll();
     }
 
-    // En Tabla_streaming.php
     public function get_series_ordenadas($limit = null)
     {
-        $builder = $this->where('temporadas_streaming IS NOT NULL')
+        $builder = $this->builder();
+
+        $builder->where('temporadas_streaming IS NOT NULL')
             ->where('duracion_streaming IS NULL')
             ->where('estatus_streaming', 1)
             ->orderBy('nombre_streaming', 'ASC');
@@ -158,8 +186,9 @@ class Tabla_streaming extends Model
             $builder->limit($limit);
         }
 
-        return $builder->findAll();
+        return $builder->get()->getResult();
     }
+
 
     public function get_latest_series($limit = 5)
     {

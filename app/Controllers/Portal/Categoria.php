@@ -18,24 +18,13 @@ class Categoria extends BaseController
     public function load_data($id_genero)
     {
         $tablaStreaming = new \App\Models\Tabla_streaming();
-        $tablaGeneros = new \App\Models\Tabla_categorias(); // Asumiendo que tienes este modelo
+        $tablaCategoria = new \App\Models\Tabla_categorias();
 
         helper('message');
         $data = array();
 
-        // Obtener información del género
-        $data['categoria'] = $tablaGeneros->find($id_genero);
-
-        // Obtener contenido por género
-        $data['peliculas'] = $tablaStreaming->where('id_genero', $id_genero)
-            ->where('duracion_streaming IS NOT NULL')
-            ->where('estatus_streaming', 1)
-            ->findAll();
-
-        $data['series'] = $tablaStreaming->where('id_genero', $id_genero)
-            ->where('temporadas_streaming IS NOT NULL')
-            ->where('estatus_streaming', 1)
-            ->findAll();
+        $data['streamings'] = $tablaStreaming->get_all_streaming_by_gen($id_genero);
+        $data['categoria'] = $tablaCategoria->get_genero_by_id($id_genero);
 
         // Datos de usuario
         $data["nombre_completo_usuario"] = $this->session->get('nombre_completo') ?? 'Invitado';
