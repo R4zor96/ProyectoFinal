@@ -4,7 +4,6 @@
     <!-- RENDER css -->
     <?= $this->section('css') ?>
 
-
     <?= $this->endSection() ?>
     <!-- RENDER css -->
 
@@ -29,19 +28,23 @@
     <section class="product-page spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h4><?= esc($categoria->nombre_genero) ?></h4>
-                        <?php if (!empty($categoria->descripcion_genero) && $categoria->descripcion_genero != 'Sin descripción...'): ?>
-                            <p class="categoria-descripcion"><?= esc($categoria->descripcion_genero) ?></p>
-                        <?php endif; ?>
+                <?php foreach ($peliculas as $pelicula): ?>
+                    <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $pelicula->caratula_streaming) ?>">
+                                <div class="ep"><?= date('H:i', strtotime($pelicula->duracion_streaming)) ?></div>
+                                <div class="view"><i class="fa fa-eye"></i> <?= $pelicula->clasificacion_streaming ?></div>
+                            </div>
+                            <div class="product__item__text">
+                                <ul>
+                                    <li><?= $pelicula->estatus_streaming == 1 ? 'Disponible' : 'No disponible' ?></li>
+                                    <li>Película</li>
+                                </ul>
+                                <h5><a href="<?= route_to('detalle_pelicula', $pelicula->id_streaming) ?>"><?= esc($pelicula->nombre_streaming) ?></a></h5>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Aquí iría el contenido específico de la categoría -->
-            <div class="row" id="contenido-categoria">
-                <!-- Los items se pueden cargar via AJAX o directamente desde el controlador -->
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

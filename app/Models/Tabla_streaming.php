@@ -37,6 +37,18 @@ class Tabla_streaming extends Model
         return false;
     }
 
+    public function get_all_streaming_by_gen($id_genero, $limit=null)
+    {
+        $builder = $this->where('id_genero',$id_genero)
+        ->where('estatus_streaming', 1);
+
+    if ($limit) {
+        $builder->limit($limit);
+    }
+
+    return $builder->findAll();
+    }
+
     public function get_streaming($id)
     {
         return $this->find($id);
