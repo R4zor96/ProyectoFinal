@@ -48,6 +48,8 @@ $routes->get('/salir', 'Usuario\Logout::index', ['as'=> 'salir']);
 //RUTAS PORTAL
 $routes->get('/', 'Portal\Home::index', ['as'=> 'home']);
 $routes->get('/categoria/(:num)', 'Portal\Categoria::index/$1');
+$routes->get('/detalles/(:num)', 'Portal\Detalles::index/$1');
+
 
 //RUTAS DASHBOARD
 $routes->get('/usuarios', 'Panel\Usuarios::index', ['as'=> 'usuarios']);

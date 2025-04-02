@@ -92,16 +92,19 @@
                         <?php foreach ($peliculas as $pelicula): ?>
                             <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $pelicula->caratula_streaming) ?>">
-                                        <div class="ep"><?= date('H:i', strtotime($pelicula->duracion_streaming)) ?></div>
-                                        <div class="view"><i class="fa fa-eye"></i> <?= $pelicula->clasificacion_streaming ?></div>
-                                    </div>
+                                    <a href="<?= site_url('/detalles/' . $pelicula->id_streaming) ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $pelicula->caratula_streaming) ?>">
+                                            <div class="ep"><?= date('H:i', strtotime($pelicula->duracion_streaming)) ?></div>
+                                            <div class="view"><i class="fa fa-film"></i> <?= $pelicula->clasificacion_streaming ?></div>
+                                        </div>
+                                    </a>
+
                                     <div class="product__item__text">
                                         <ul>
                                             <li><?= $pelicula->estatus_streaming == 1 ? 'Disponible' : 'No disponible' ?></li>
                                             <li>Película</li>
                                         </ul>
-                                        <h5><a href="<?= route_to('detalle_pelicula', $pelicula->id_streaming) ?>"><?= esc($pelicula->nombre_streaming) ?></a></h5>
+                                        <h5><a href="<?= site_url('/detalles/' . $pelicula->id_streaming) ?>"><?= esc($pelicula->nombre_streaming) ?></a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -126,16 +129,18 @@
                         <?php foreach ($series as $serie): ?>
                             <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $serie->caratula_streaming) ?>">
-                                        <div class="ep">Temp. <?= $serie->temporadas_streaming ?></div>
-                                        <div class="view"><i class="fa fa-film"></i> <?= $serie->clasificacion_streaming ?></div>
-                                    </div>
+                                <a href="<?= site_url('/detalles/' . $serie->id_streaming) ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $serie->caratula_streaming) ?>">
+                                            <div class="ep"><?= date('H:i', strtotime($serie->duracion_streaming)) ?></div>
+                                            <div class="view"><i class="fa fa-film"></i> <?= $serie->clasificacion_streaming ?></div>
+                                        </div>
+                                    </a>
                                     <div class="product__item__text">
                                         <ul>
                                             <li><?= $serie->estatus_streaming == 1 ? 'Disponible' : 'No disponible' ?></li>
                                             <li>Serie</li>
                                         </ul>
-                                        <h5><a href="<?= route_to('detalle_serie', $serie->id_streaming) ?>"><?= esc($serie->nombre_streaming) ?></a></h5>
+                                        <h5><a href="<?= site_url('/detalles/' . $serie->id_streaming) ?>"><?= esc($serie->nombre_streaming) ?></a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +175,7 @@
                                         <i class="fa fa-film"></i> <?= $streaming->clasificacion_streaming ?>
                                     </div>
                                     <h5>
-                                        <a href="<?= route_to('detalle_streaming', $streaming->id_streaming) ?>">
+                                        <a href="<?= site_url('/detalles/' . $streaming->id_streaming) ?>">
                                             <?= esc($streaming->nombre_streaming) ?>
                                         </a>
                                     </h5>

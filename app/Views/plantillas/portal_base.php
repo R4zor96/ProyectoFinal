@@ -45,8 +45,8 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="<?= site_url('/') ?>">Homepage</a></li>
-                                <li><a href="#">Categories <span class="arrow_carrot-down"></span></a>
+                                <li class="active"><a href="<?= site_url('/') ?>">homepage</a></li>
+                                <li><a href="#">Categorias <span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
                                         <!-- En tu código HTML donde va el menú -->
                                         <?= generar_menu_categorias() ?>

@@ -60,6 +60,15 @@ class Tabla_streaming extends Model
         return $resultados;
     }
 
+    public function get_recomendaciones($id_genero, $exclude_id, $limit = 4)
+    {
+        return $this->where('id_genero', $id_genero)
+            ->where('id_streaming !=', $exclude_id)
+            ->where('estatus_streaming', 1)
+            ->orderBy('RAND()') // Recomendaciones aleatorias
+            ->limit($limit)
+            ->findAll();
+    }
 
     public function get_all_streaming_by_gen($id_genero, $limit = null)
     {

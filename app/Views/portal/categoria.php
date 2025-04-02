@@ -21,7 +21,7 @@ use App\Controllers\Portal\Categoria;
             <div class="col-lg-12">
                 <div class="breadcrumb__links">
                     <a href="<?= site_url('/') ?>"><i class="fa fa-home"></i> Home</a>
-                    <a href="<?= site_url('/categoria/' . $categoria->id_genero) ?>">Categories</a>
+                    <a href="<?= site_url('/categoria/' . $categoria->id_genero) ?>">Categorias</a>
                     <span><?= esc($categoria->nombre_genero) ?></span>
                 </div>
             </div>
@@ -59,16 +59,18 @@ use App\Controllers\Portal\Categoria;
                         <?php foreach ($streamings as $stream): ?>
                             <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                                 <div class="product__item">
-                                    <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $stream->caratula_streaming) ?>">
-                                        <div class="ep"><?= date('H:i', strtotime($stream->duracion_streaming)) ?></div>
-                                        <div class="view"><i class="fa fa-film"></i> <?= $stream->clasificacion_streaming ?></div>
-                                    </div>
+                                    <a href="<?= site_url('/detalles/' . $stream->id_streaming) ?>">
+                                        <div class="product__item__pic set-bg" data-setbg="<?= base_url(RECURSOS_STREAMINGS_IMG . '/' . $stream->caratula_streaming) ?>">
+                                            <div class="ep"><?= date('H:i', strtotime($stream->duracion_streaming)) ?></div>
+                                            <div class="view"><i class="fa fa-film"></i> <?= $stream->clasificacion_streaming ?></div>
+                                        </div>
+                                    </a>
                                     <div class="product__item__text">
                                         <ul>
                                             <li><?= $stream->estatus_streaming == 1 ? 'Disponible' : 'No disponible' ?></li>
                                             <li>Película</li>
                                         </ul>
-                                        <h5><a href="<?= route_to('detalle_pelicula', $stream->id_streaming) ?>"><?= esc($stream->nombre_streaming) ?></a></h5>
+                                        <h5><a href="<?= site_url('/detalles/' . $stream->id_streaming) ?>"><?= esc($stream->nombre_streaming) ?></a></h5>
                                     </div>
                                 </div>
                             </div>
@@ -95,19 +97,5 @@ use App\Controllers\Portal\Categoria;
 <!-- RENDER js -->
 <?= $this->section('js') ?>
 
-<script>
-    // Puedes agregar JS específico para la página de categoría
-    $(document).ready(function() {
-        // Ejemplo: Cargar contenido dinámico
-        const categoriaId = <?= $categoria->id_genero ?>;
-
-        // Aquí podrías hacer una llamada AJAX para cargar los items de la categoría
-        /*
-        $.get(`/api/categoria/${categoriaId}/items`, function(data) {
-            $('#contenido-categoria').html(data);
-        });
-        */
-    });
-</script>
 <?= $this->endSection() ?>
 <!-- RENDER js -->
